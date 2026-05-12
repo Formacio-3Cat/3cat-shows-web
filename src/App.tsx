@@ -1,5 +1,5 @@
-import React from 'react';
 import { EpisodeForm } from './components/EpisodeForm';
+import { A11yOverlay } from './components/A11yOverlay';
 import './App.css';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <main>
         <EpisodeForm />
       </main>
+      {import.meta.env.DEV && <A11yOverlay />}
     </div>
   );
 }

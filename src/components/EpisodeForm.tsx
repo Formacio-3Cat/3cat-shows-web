@@ -11,7 +11,8 @@ export const EpisodeForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* PROBLEMA 1: input sense label associat */}
+      {/* PROBLEMA 1: input sense label associat (i conceptualment és un camp obligatori
+                     — la skill hauria d'afegir asterisc visible + required + aria-required) */}
       <div>
         Títol de l'episodi
         <input type="text" placeholder="Ex: El primer dia" />
@@ -23,7 +24,7 @@ export const EpisodeForm: React.FC = () => {
         <textarea rows={3} placeholder="Una breu descripció..." />
       </div>
 
-      {/* PROBLEMA 3: select sense label */}
+      {/* PROBLEMA 3: select sense label (i també conceptualment obligatori) */}
       <div>
         <select>
           <option value="">Selecciona un canal</option>
@@ -47,21 +48,26 @@ export const EpisodeForm: React.FC = () => {
         <img src="/divider.png" width={200} height={2} />
       </div>
 
-      {/* PROBLEMA 6: botó com a div (no és focusable amb teclat) */}
+      {/* PROBLEMA 6: botó com a div — no focusable amb teclat, sense hover,
+                     sense estats actius, padding incorrecte respecte als botons reals */}
       <div onClick={handleSubmit} style={{
         display: 'inline-block',
-        background: '#0066cc',
+        background: '#5599dd',
         color: 'white',
-        padding: '0.6rem 1.2rem',
+        padding: '0.3rem 0.8rem',
         borderRadius: 4,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        fontSize: '0.9rem'
       }}>
         Desa
       </div>
 
-      {/* PROBLEMA 7: missatge de confirmació sense aria-live */}
+      {/* PROBLEMA 7: missatge de confirmació sense aria-live, sense rol,
+                     i estèticament invisible (només text verd) */}
       {submitted && (
-        <p style={{ color: 'green' }}>L'episodi s'ha desat correctament.</p>
+        <p style={{ color: 'green', marginTop: '1rem' }}>
+          L'episodi s'ha desat correctament.
+        </p>
       )}
     </form>
   );
