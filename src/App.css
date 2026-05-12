@@ -10,28 +10,32 @@ header h1 {
   margin-bottom: 1.5rem;
 }
 
-/* PROBLEMA D'ACCESSIBILITAT PLANTAT: contrast extremadament baix
-   #d8d8d8 sobre blanc = ~1.4:1 — pràcticament invisible. Falla WCAG AA (cal 4.5:1) */
+/* PROBLEMA D'ACCESSIBILITAT PLANTAT: contrast extremadament baix i mida diminuta.
+   #d8d8d8 sobre blanc = ~1.4:1 — pràcticament invisible. Falla WCAG 1.4.3 (cal 4.5:1) */
 .hint {
   color: #d8d8d8;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
 }
 
 /* PROBLEMA D'ACCESSIBILITAT PLANTAT: contrast del placeholder massa baix */
-input::placeholder {
-  color: #c8c8c8;
+input::placeholder,
+textarea::placeholder {
+  color: #d8d8d8;
 }
 
+/* PROBLEMA D'ACCESSIBILITAT PLANTAT: border #f0f0f0 sobre blanc = ~1.1:1.
+   Falla WCAG 1.4.11 Non-text Contrast (cal 3:1 per a UI components).
+   Visualment, els inputs semblen "flotar" sense voltant. */
 input,
 textarea,
 select {
   display: block;
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+  padding: 0.4rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #f0f0f0;
   border-radius: 4px;
 }
 
